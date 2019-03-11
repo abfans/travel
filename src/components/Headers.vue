@@ -5,26 +5,30 @@
 				<ul class="fl">
 					<li class="tb"><p>您好，欢迎访问Zhiqi Travel Website！</p></li>
 					<li class="tb">
-						<a href="#" data-am-modal="{target: '#my-alert'}">签到</a><span>|</span></li>
-		            <li class="tb"><a href="login.html">登录</a><span>|</span></li></li>
+						<a href="#" data-am-modal="{target: '#my-alert'}">签到</a><span>|</span>
+					</li>
+		      <li class="tb"><router-link to="/login">登录</router-link><span>|</span></li></li>
 					<li class="tb"><a href="login.html">登录</a></li>
 					<li class="tb"><a href="register.html">注册</a></li>
 				</ul>
 				<ul class="fr">
-				<li class="tb">
-					<a href="#">我的河洛</a>
-					<span>|</span>
-				</li>
-				<li class="tb">
-					<a href="">购物车</a>
-					<span>|</span>
-				</li>
-				<li class="tb">
-					<a href="">用户帮助中心</a>
-					<span>|</span>
-				</li>
-				<li class="tb"><img src="../assets/images/tel_ico.gif" alt="" /><span>40000-40000</span></li>
-			</ul>
+					<li class="tb">
+						<a href="#">我的河洛</a>
+						<span>|</span>
+					</li>
+					<li class="tb">
+						<a href="">购物车</a>
+						<span>|</span>
+					</li>
+					<li class="tb">
+						<a href="">用户帮助中心</a>
+						<span>|</span>
+					</li>
+					<li class="tb">
+						<img src="../assets/images/tel_ico.gif" alt="" />
+						<span>40000-40000</span>
+					</li>
+				</ul>
 			</div>
 		</div>
 		<div id="header">
@@ -45,22 +49,19 @@
 						      :value="item.value">
 						    </el-option>
 						</el-select>
-						<el-input 
+						<el-input
 							style="border:none"
 							v-model="input" placeholder="请输入内容"></el-input>
 					</div>
 					<div class="nav">
 					<ul>
-						<li><router-link to="/">首页</router-link></li>
-						<li><router-link to="/">洛阳旅游</router-link></li>
-						<li><a href="">特产商城</a></li>
-						<li><a href="">美丽乡村</a></li>
-						<li><a href="">新闻资讯</a></li>
-						<li><a href="">项目地址</a></li>
+						<li v-for="nav in navLists">
+							<router-link :to="nav.link">{{nav.title}}</router-link>
+						</li>
 					</ul>
-				</div>	
 				</div>
-				
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -71,6 +72,13 @@ export default{
 	name:'headers',
 	data(){
 		return{
+			navLists:[
+				{link:'/',title:'首页'},
+				{link:'/scenic_list',title:'洛阳旅游'},
+				{link:'/mall_list',title:'特产商城'},
+				{link:'/note_list',title:'美丽乡村'},
+				{link:'/news_list',title:'新闻资讯'},
+			],
 			options:[
 				{
           			value: '0',
@@ -114,5 +122,9 @@ export default{
     font-size: 13px;
     box-shadow: none;
     border:none;
+}
+.active{
+	color:#fff;
+	background-color:#f60;
 }
 </style>

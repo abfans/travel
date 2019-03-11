@@ -1,7 +1,7 @@
 @charset "utf-8";
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, code, em, img, q, small, strong, dd, dl, dt, li, ol, ul, fieldset, form, label, table, tbody, tr, th, td, input
 {margin:0;padding:0;}
-a{font-weight:400;color:#333;}
+a{font-weight:400;color:#333;text-decoration: none;}
 a:hover{color:#f60;}
 li{list-style:none;}
 .clear{clear:both;}
@@ -41,7 +41,7 @@ body{width:100%;min-width:1280px;}
 #toolbar .user-hd{height:30px;display:block;padding-right:5px;}
 
 #toolbar .user-hd img{border:2px solid white;width:27px;height:27px;vertical-align:top;position:relative;top:1px;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;}
-#toolbar .user-hd b{position:absolute;top:14px;right:0;border-right:white 4px solid;border-left:white 4px solid;border-top:#666 4px solid;border-bottom:white 4px solid;-webkit-transition:-webkit-transform .2s ease-in;-moz-transition:-webkit-transform .2s ease-in;-o-transition:-webkit-transform .2s ease-in;transition:-webkit-transform .2s ease-in}  
+#toolbar .user-hd b{position:absolute;top:14px;right:0;border-right:white 4px solid;border-left:white 4px solid;border-top:#666 4px solid;border-bottom:white 4px solid;-webkit-transition:-webkit-transform .2s ease-in;-moz-transition:-webkit-transform .2s ease-in;-o-transition:-webkit-transform .2s ease-in;transition:-webkit-transform .2s ease-in}
 
 #toolbar .user:hover .user-hd{margin:0;color:#333333;background:white;}
 #toolbar .user:hover .user-hd b{border-left-color:#fff;filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);border-bottom-color:#fff;border-top-color:#f90;border-right-color: #fff; -moz-transform: rotate(180deg); -moz-transform-origin: 50% 30%; -webkit-transform: rotate(180deg); -webkit-transform-origin: 50% 30%; -o-transform: rotate(180deg); -o-transform-origin: 50% 30%; transform: rotate(180deg); transform-origin: 50% 30%;}
@@ -136,7 +136,7 @@ body{width:100%;min-width:1280px;}
 #h_food .box .big{}
 #h_food .box .big a{}
 #h_food .box .big .pic{height:225px;overflow:hidden;}
-#h_food .box .big img{width:100%;}							
+#h_food .box .big img{width:100%;}
 #h_food .box .big p{padding:10px 15px;font-size:12px;color:#999;}
 #h_food .box .list{}
 #h_food .box .list li{float:left;margin:0 13px;}
@@ -408,7 +408,7 @@ body{width:100%;min-width:1280px;}
 #imageMenu li#onlickImg img, #imageMenu li:hover img{width:60px;height:60px;opacity:1;}
 /*--------内容信息--------*/
 #item_info .cont_info{float:right;width:600px;}
-#item_info .p_number{}	
+#item_info .p_number{}
 #item_info .unit_price{padding:15px;margin-top:20px;font-size:16px;background:#f4e4db;}
 #item_info .unit_price strong{color:#FD532D}
 
@@ -538,34 +538,3 @@ body{width:100%;min-width:1280px;}
 #activity_recom .con{float:right;width:170px;}
 #activity_recom .con span{display:block;color:#999;font-size:14px;margin-top:10px;}
 #activity_recom .con span i{margin-right:5px;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
