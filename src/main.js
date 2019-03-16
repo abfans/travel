@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { Input,Select,Button, Option,OptionGroup} from 'element-ui'
+import { Input,Select,Button, Option,OptionGroup, Checkbox} from 'element-ui'
 
 Vue.config.productionTip = false
 Vue.use(Button)
@@ -11,6 +11,7 @@ Vue.use(Input)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(OptionGroup)
+Vue.use(Checkbox)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -7,7 +7,8 @@
 					<li class="tb">
 						<a href="#" data-am-modal="{target: '#my-alert'}">签到</a><span>|</span>
 					</li>
-		      <li class="tb"><router-link to="/login">登录</router-link><span>|</span></li></li>
+		      <li class="tb">
+						<router-link to="/login">登录</router-link><span>|</span></li></li>
 					<li class="tb"><a href="login.html">登录</a></li>
 					<li class="tb"><a href="register.html">注册</a></li>
 				</ul>
@@ -40,23 +41,20 @@
 				</div>
 				<div class="search_nav fl">
 					<div class="search radius6">
-						<el-select v-model="value" placeholder="请选择">
-						    <el-option
-						      v-for="item in options"
-						      :key="item.value"
-						      class="select"
-						      :label="item.label"
-						      :value="item.value">
-						    </el-option>
-						</el-select>
-						<el-input
-							style="border:none"
-							v-model="input" placeholder="请输入内容"></el-input>
+							<h3 @click="show=!show">{{title}}</h3>
+							<ul :class="{show:show}">
+								<li ref="lis" v-for="opt in options" :li-value="opt.value"
+								 @click="selected(opt.value)"
+								 @mouseleave="removeClass()"
+								 @mouseenter="addClass(opt.value)">{{opt.label}}</li>
+							</ul>
+							<input v-model="tips" @focus="clearTips" @blur="addTips">
+							<button type="button" name="button">搜索</button>
 					</div>
 					<div class="nav">
 					<ul>
-						<li v-for="nav in navLists">
-							<router-link :to="nav.link">{{nav.title}}</router-link>
+						<li v-for="(nav,index) in navLists">
+							<router-link :to="nav.link" :class="{active:nav.show}" @click.navite="selectdNav(index)">{{nav.title}}</router-link>
 						</li>
 					</ul>
 				</div>
@@ -73,12 +71,16 @@ export default{
 	data(){
 		return{
 			navLists:[
-				{link:'/',title:'首页'},
-				{link:'/scenic_list',title:'洛阳旅游'},
-				{link:'/mall_list',title:'特产商城'},
-				{link:'/note_list',title:'美丽乡村'},
-				{link:'/news_list',title:'新闻资讯'},
+				{link:'/',title:'首页',show:true},
+				{link:'/scenic_list',title:'洛阳旅游',show:false},
+				{link:'/mall_list',title:'特产商城',show:false},
+				{link:'/note_list',title:'美丽乡村',show:false},
+				{link:'/news_list',title:'新闻资讯',show:false},
 			],
+			title:'景区',
+			current:'0',
+			show:false,
+			tips:'请输入内容',
 			options:[
 				{
           			value: '0',
@@ -98,6 +100,42 @@ export default{
         		},
 			],
 			value:"0",
+		}
+	},
+	mounted(){
+		this.removeClass()
+	},
+	methods:{
+		selected(index){
+			this.current=index
+			this.title=this.options[index].label
+			this.show=false
+		},
+		addClass(index){
+			this.$refs.lis.forEach(item=>{
+				item.className=""
+			});
+			this.$refs.lis[index].className="active"
+		},
+		removeClass(){
+			this.$refs.lis.forEach(item=>{
+				item.className=""
+			});
+			this.$refs.lis[this.current].className="hover"
+		},
+		clearTips(){
+			this.tips=""
+		},
+		addTips(){
+			if(this.tips==""){
+				this.tips="请输入内容"
+			}
+		},
+		selectedNav(index){
+			this.navList.forEach(item=>{
+				item.show=false
+			})
+			this.navList[index].show=true
 		}
 	}
 }
@@ -126,5 +164,65 @@ export default{
 .active{
 	color:#fff;
 	background-color:#f60;
+}
+.el-input__inner{
+	text-align:center;
+}
+.el-select-dropdown__item{
+	text-align:center;
+}
+input,button{
+	height:40px;
+	vertical-align:top;
+}
+input{
+	border:none;
+	outline:none;
+	padding:0 10px;
+	width:372px;
+}
+button{
+	width:80px;
+	background:#f60;
+	color:#fff;
+	border:none;
+	padding:0;
+}
+.search h3{
+	display:inline-block;
+	height:40px;
+	color:#f60;
+	font-weight:normal;
+	overflow:hidden;
+	width:65px;
+	border-right:2px solid #f60;
+	line-height:40px;
+	text-align:center;
+}
+.search{
+	position:relative;
+}
+.search ul{
+	overflow:hidden;
+	width:65px;
+	position:absolute;
+	top:40px;
+	display:none;
+	left:-2px;
+	border:2px solid #f60;
+	text-align:center;
+	background:#fff;
+	z-index:999;
+}
+.search ul li{
+	height:40px;
+	line-height:40px;
+	cursor:pointer;
+}
+.hover{
+	background:#eee;
+}
+.search .show{
+	display:block;
 }
 </style>

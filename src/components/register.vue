@@ -18,11 +18,11 @@
           <el-input placeholder="请输入手机号" v-model="password"></el-input>
         </div>
         <div  class="login-content">
-           <el-checkbox v-model="checked">记住密码</el-checkbox>
-           <span class="tips">找回密码</span>
+           <el-input placeholder="验证码" class="code-input" v-model="code"></el-input>
+           <img src="" alt="获取验证" class="tips">
         </div>
         <div  class="login-content">
-          <el-button type="primary">登陆</el-button>
+          <el-button type="primary">注册</el-button>
         </div>
       </div>
   </div>
@@ -33,7 +33,7 @@ export default {
   name:'login',
   data(){
     return{
-      active:true,
+      active:false,
       mobile:'',
       password:'',
       remember:false
@@ -108,5 +108,10 @@ export default {
 .tips{
   display:block;
   float:right;
+  margin-right:10px;
+}
+.code-input{
+  width:200px;
+  float:left;
 }
 </style>
